@@ -1,0 +1,13 @@
+<launch>
+	<arg name="camera_tf" value="camera_tf" />
+	<arg name="freq" value="50" />
+	<arg name="panel_a_fiducial" value="fiducial_16" />
+	<arg name="panel_b1_fiducial_top" value="fiducial_24" />
+	<arg name="panel_b1_fiducial_bottom" value="fiducial_42" />
+	<arg name="panel_b2_fiducial" value="fiducial_8" />
+
+	<node name="tf_filter_panel_a" pkg="tf_utils" type="moving_average_filter.py" args="$(arg camera_tf) $(arg panel_a_fiducial) $(arg freq)" output="screen" />
+	<node name="tf_filter_panel_b1_top" pkg="tf_utils" type="moving_average_filter.py" args="$(arg camera_tf) $(arg panel_b1_fiducial_top) $(arg freq)" output="screen" />
+	<node name="tf_filter_panel_b1_bottom" pkg="tf_utils" type="moving_average_filter.py" args="$(arg camera_tf) $(arg panel_b1_fiducial_bottom) $(arg freq)" output="screen" />
+	<node name="tf_filter_panel_b2" pkg="tf_utils" type="moving_average_filter.py" args="$(arg camera_tf) $(arg panel_b2_fiducial) $(arg freq)" output="screen" />
+</launch>
