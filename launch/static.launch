@@ -1,31 +1,41 @@
 <launch>
-	<arg name="panel_a_fiducial" value="fiducial_16" />
-	<arg name="panel_b1_fiducial_top" value="fiducial_24" />
-	<arg name="panel_b1_fiducial_bottom" value="fiducial_42" />
-	<arg name="panel_b2_fiducial" value="fiducial_8" />
+	<arg name="panel_a_fiducial" value="fiducial_3" />
+	<arg name="panel_b1_fiducial_top" value="fiducial_20" />
+	<arg name="panel_b1_fiducial_bottom" value="fiducial_9" />
+	<arg name="panel_b2_fiducial" value="fiducial_83" />
 
+
+	<node name="static_tf_server" pkg="tf_utils" type="static_tf_server.py" output="screen" />
+	
+	<!-- INITIAL LOOK POSITIONS -->
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster11" args="0 -0.02 0.2 0 0.707 0.707 0 $(arg panel_a_fiducial)_initial $(arg panel_a_fiducial)_look 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster12" args="0 -0.02 0.2 0 0.707 0.707 0 $(arg panel_b1_fiducial_top)_initial $(arg panel_b1_fiducial_top)_look 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster13" args="0 -0.02 0.2 0 0.707 0.707 0 $(arg panel_b1_fiducial_bottom)_initial $(arg panel_b1_fiducial_bottom)_look 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster14" args="0 -0.02 0.2 0 0.707 0.707 0 $(arg panel_b2_fiducial)_initial $(arg panel_b2_fiducial)_look 100" />
+
+	<!-- PANEL ELEMENTS FINAL LOCATIONS-->
 	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster0" args="0 0 0 0 0 0 1 $(arg panel_a_fiducial)_fixed panel_a_tag 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster" args="0.084 0 0 0 0 0 1 panel_a_tag panel_main_button 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster" args="0.094 0 0 0 0 0 1 panel_a_tag panel_main_button 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster1" args="0.084 -0.071 0 0 0 0 1 panel_a_tag panel_button_1 100" />
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster2" args="0 -0.071 0 0 0 0 1 panel_a_tag panel_button_2 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster1" args="0.094 -0.095 0 0 0 0 1 panel_a_tag panel_button_1 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster2" args="0 -0.095 0 0 0 0 1 panel_a_tag panel_button_2 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster3" args="0.084 -0.142 0 0 0 0 1 panel_a_tag panel_button_3 100" />
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster4" args="0 -0.142 0 0 0 0 1 panel_a_tag panel_button_4 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster3" args="0.094 -0.195 0 0 0 0 1 panel_a_tag panel_button_3 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster4" args="0 -0.195 0 0 0 0 1 panel_a_tag panel_button_4 100" />
 
 
 	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster5" args="0 0 0 0 0 0 1 $(arg panel_b1_fiducial_top)_fixed panel_b1_tag_up 100" />
 
 	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster6" args="-0.062 0 0 0 0 0 1 panel_b1_tag_up panel_power_button 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster8" args="0 0 0 0 0 0 1 $(arg panel_b1_fiducial_bottom)_fixed panel_b1_tag_bottom 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster7" args="0 0 0 0 0 0 1 $(arg panel_b1_fiducial_bottom)_fixed panel_b1_tag_bottom 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster7" args="-0.062 0 0 0 0 0 1 panel_b1_tag_bottom panel_plug 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster8" args="-0.062 0 0 0 0 0 1 panel_b1_tag_bottom panel_plug 100" />
 
 
 	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster9" args="0 0 0 0 0 0 1 $(arg panel_b2_fiducial)_fixed panel_b2_tag 100" />
 
-	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster10" args="0 0.071 0 0 0 0 1 panel_b2_tag panel_ethernet 100" />
+	<node pkg="tf" type="static_transform_publisher" name="panel_broadcaster10" args="0 0.095 0 0 0 0 1 panel_b2_tag panel_ethernet 100" />
 
 </launch>

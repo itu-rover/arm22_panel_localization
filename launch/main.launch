@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find arm22_panel_localization)/launch/static.launch"/>
+    <include file="$(find arm22_panel_localization)/launch/filters.launch"/>
+</launch>
